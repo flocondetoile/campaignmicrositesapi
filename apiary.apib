@@ -1,0 +1,289 @@
+FORMAT: 1A
+
+# Campaign Microsites
+
+Campaign Microsites is a simple API allowing consumers to view content for a designated campaign microsite.
+
+# Version
+
+The current version of the API is: **0.1**
+
+## Campaigns Collection [/v0/campaign{?_format,langcode}]
+
+### GET List All Campaigns [GET]
+
++ Parameters
+    + _format (required, string, `json`) ... Format of the response.
+    + langcode (optional, string, `en`) ... Language code string.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "uuid": "03471d45-4dc4-4c0d-9627-bfbc86b1a122",
+                "langcode": "en",
+                "languages": [
+                    "en": "English",
+                    "es": "Español",
+                    "fr": "Français",
+                    "default": "en"
+                ],
+                "title": "Example Campaign",
+                "created": "2017-01-12T08:40:51.620Z",
+                "external": true,
+                "external_url": "http://www.examplecampaign.dev"
+                "description": {
+                    "formatted": "<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>"
+                    "raw": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
+                },
+                "image": [
+                    "large": {
+                        "url": "https://i.ytimg.com/vi/ZDA4zpz30_E/maxresdefault.jpg"
+                        "width": 1280,
+                        "height": 720,
+                        "alt": "A Fair Hot"
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/ZDA4zpz30_E/hqdefault.jpg",
+                        "width": 120,
+                        "height": 90,
+                        "alt": "A Fair Hot"
+                    },
+                    "thumb": {
+                        "url": "https://i.ytimg.com/vi/ZDA4zpz30_E/default.jpg",
+                        "width": 120,
+                        "height": 90,
+                        "alt": "A Fair Hot"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "uuid": "3ec6d1e9-ea4f-4738-8a6f-e02050e3c218",
+                "langcode": "en",
+                "languages": [
+                    "en": "English",
+                    "es": "Español",
+                    "default": "en"
+                ],
+                "title": "Other Campaign",
+                "created": "2017-01-12T08:42:51.620Z",
+                "external": true,
+                "external_url": "http://www.othercampaign.dev"
+                "description": {
+                    "formatted": "<p>Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Cras ultricies ligula sed magna dictum porta. Nulla porttitor accumsan tincidunt. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec rutrum congue leo eget malesuada.</p>"
+                    "raw": "Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Cras ultricies ligula sed magna dictum porta. Nulla porttitor accumsan tincidunt. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec rutrum congue leo eget malesuada."
+                },
+                "image": [
+                    "large": {
+                        "url": "https://i.ytimg.com/vi/fH-3cUa7oM8/maxresdefault.jpg"
+                        "width": 1280,
+                        "height": 720,
+                        "alt": "A Fair Hot"
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/fH-3cUa7oM8/hqdefault.jpg",
+                        "width": 120,
+                        "height": 90,
+                        "alt": "A Fair Hot"
+                    },
+                    "thumb": {
+                        "url": "https://i.ytimg.com/vi/fH-3cUa7oM8/default.jpg",
+                        "width": 120,
+                        "height": 90,
+                        "alt": "A Fair Hot"
+                    }
+                ]
+            }
+        ]
+
+## Campaign [/v0/campaign/{id}{?_format,langcode}]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the campaign.
+    + _format (required, string, `json`) ... Format of the response.
+    + langcode (optional, string, `en`) ... Language code string.
+
+### GET Campaign [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "uuid": "03471d45-4dc4-4c0d-9627-bfbc86b1a122",
+            "langcode": "en",
+            "languages": [
+                "en": "English",
+                "es": "Español",
+                "fr": "Français",
+                "default": "en"
+            ],
+            "title": "Example Campaign",
+            "created": "2017-01-12T08:40:51.620Z",
+            "external": true,
+            "external_url": "http://www.examplecampaign.dev"
+            "description": {
+                "formatted": "<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>"
+                "raw": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
+            },
+            "image": [
+                "large": {
+                    "url": "https://i.ytimg.com/vi/ZDA4zpz30_E/maxresdefault.jpg"
+                    "width": 1280,
+                    "height": 720,
+                    "alt": "A Fair Hot"
+                },
+                "medium": {
+                    "url": "https://i.ytimg.com/vi/ZDA4zpz30_E/hqdefault.jpg",
+                    "width": 120,
+                    "height": 90,
+                    "alt": "A Fair Hot"
+                },
+                "thumb": {
+                    "url": "https://i.ytimg.com/vi/ZDA4zpz30_E/default.jpg",
+                    "width": 120,
+                    "height": 90,
+                    "alt": "A Fair Hot"
+                }
+            ]
+        }
+
+## Campaign Articles Collection [/v0/campaign/{campaignId}/article{?_format,langcode,type,sort,order}]
+
+### GET List All Campaign Articles [GET]
+
++ Parameters
+    + campaignId (required,number,`1`) ... ID of the campaign.
+    + _format (required, string, `json`) ... Format of the response.
+    + langcode (optional, string, `en`) ... Language code string.
+    + type (optional, string, `news`) ... Type of articles to fetch. Options: news, faq.
+    + sort (optional, string, `created`) ... Apply a sort to the list. Options: created, type, title. Default: created.
+    + order (optional, string, `desc`) ... Order to sort list. Options: asc, desc. Default: desc.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 3,
+                "uuid": "d29e1a29-ff8e-45f6-8810-65db4e12d4c0",
+                "langcode": "en",
+                "languages": [
+                    "en": "English",
+                    "es": "Español",
+                    "fr": "Français",
+                    "default": "en"
+                ],
+                "title": "Pfizer drops the price for humanitarian organizations",
+                "created": "2017-01-11T08:40:51.620Z",
+                "type": "news",
+                "body": {
+                    "formatted": "<p>Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit.</p>"
+                    "raw": "Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit."
+                },
+            },
+            {
+                "id": 4,
+                "uuid": "70e0e83c-6b0d-4aa4-b7e3-bb8afc341327",
+                "langcode": "en",
+                "languages": [
+                    "en": "English",
+                    "es": "Español",
+                    "fr": "Français",
+                    "default": "en"
+                ],
+                "title": "Open letter to Pfizer employees: We need allies",
+                "created": "2017-01-10T08:40:51.620Z",
+                "type": "news",
+                "body": {
+                    "formatted": "<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>"
+                    "raw": "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui."
+                },
+            },
+            {
+                "id": 5,
+                "uuid": "5ea4701a-eb77-4437-9ff9-34fea5ce9562",
+                "langcode": "en",
+                "languages": [
+                    "en": "English",
+                    "es": "Español",
+                    "fr": "Français",
+                    "default": "en"
+                ],
+                "title": "What's it like to have pneumonia?",
+                "created": "2017-01-09T08:40:51.620Z",
+                "type": "news",
+                "body": {
+                    "formatted": "<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>"
+                    "raw": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
+                },
+            }
+        ]
+
+## Campaign Article [/v0/campaign/{campaignId}/article/{articleId}{?_format,langcode}]
+
+### GET Campaign Article [GET]
+
++ Parameters
+    + campaignId (required,number,`1`) ... ID of the campaign.
+    + articleId (required,number,`3`) ... ID of the article.
+    + _format (required, string, `json`) ... Format of the response.
+    + langcode (optional, string, `en`) ... Language code string.
+
++ Response 200 (application/json)
+
+        {
+            "id": 5,
+            "uuid": "5ea4701a-eb77-4437-9ff9-34fea5ce9562",
+            "langcode": "en",
+            "languages": [
+                "en": "English",
+                "es": "Español",
+                "fr": "Français",
+                "default": "en"
+            ],
+            "title": "What's it like to have pneumonia?",
+            "type": "news",
+            "body": {
+                "formatted": "<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>"
+                "raw": "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
+            },
+            "related": [
+                {
+                    "id": 3,
+                    "uuid": "d29e1a29-ff8e-45f6-8810-65db4e12d4c0",
+                    "langcode": "en",
+                    "languages": [
+                        "en": "English",
+                        "es": "Español",
+                        "fr": "Français",
+                        "default": "en"
+                    ],
+                    "title": "Pfizer drops the price for humanitarian organizations",
+                    "created": "2017-01-11T08:40:51.620Z",
+                    "type": "news",
+                    "body": {
+                        "formatted": "<p>Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit.</p>"
+                        "raw": "Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit."
+                    },
+                },
+                {
+                    "id": 4,
+                    "uuid": "70e0e83c-6b0d-4aa4-b7e3-bb8afc341327",
+                    "langcode": "en",
+                    "languages": [
+                        "en": "English",
+                        "es": "Español",
+                        "fr": "Français",
+                        "default": "en"
+                    ],
+                    "title": "Open letter to Pfizer employees: We need allies",
+                    "created": "2017-01-10T08:40:51.620Z",
+                    "type": "news",
+                    "body": {
+                        "formatted": "<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>"
+                        "raw": "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui."
+                    },
+                }
+            ]
+        }
